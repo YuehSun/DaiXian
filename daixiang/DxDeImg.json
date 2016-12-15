@@ -1,0 +1,106 @@
+{
+    "imgs": [
+        {
+            "src": "DxDelImg/img1(1).jpg",
+            "id":0
+            
+        },
+        {
+        
+            "src": "DxDelImg/img1(2).jpg",
+            "id":1
+        },
+        {
+            "src": "DxDelImg/img1(3).jpg",
+            "id":2
+        },
+        {
+            "src": "DxDelImg/img1(4).jpg",
+            "id":3
+        },
+        {
+            "src": "DxDelImg/img1(5).jpg",
+            "id":4
+        },
+        {
+            "src": "DxDelImg/img1(6).jpg",
+            "id":5
+        }
+    ],
+    
+    "title1": [
+        {
+            "title": "印度进口辣木籽 特级辣木子天然精选辣木种子保健食品休闲零食"
+        },
+        {
+            "title": "[果脯屋]干紫薯干 紫薯丁 脱水紫薯块 生紫薯粒煮粥"
+        },
+        {
+            "title": "[果脯屋]脱水苹果粒（丁）10*10mm"
+        },
+        {
+            "title": "[果脯屋]花菜干 花椰菜干美味脆爽 脱水蔬菜"
+        },
+        {
+            "title": "[果脯屋]脱水胡萝卜 代餐粉 面食调色粉 "
+        },
+        {
+            "title": "[果脯屋]脱水南瓜粒南瓜干南瓜粥营养代餐煮粥必备"
+        }
+    ],
+    
+    "buyimg": [
+        {
+            "src": "DxDelImg/buy.png"
+        }
+       
+    ],
+    "imgs2": [
+        {
+            "src": "DxDelImg/img2(1).jpg"
+        },
+        {
+            "src": "DxDelImg/img2(2).jpg"
+        },
+        {
+            "src": "DxDelImg/img2(3).jpg"
+        },
+        {
+            "src": "DxDelImg/img2(4).jpg"
+        },
+        {
+            "src": "DxDelImg/img2(5).jpg"
+        },
+        {
+            "src": "DxDelImg/img2(6).jpg"
+        },
+        
+         {
+            "src": "DxDelImg/img2(7).jpg"
+        },
+        {
+            "src": "DxDelImg/img2(8).jpg"
+        },
+        {
+            "src": "DxDelImg/img2(9).jpg"
+        },
+        {
+            "src": "DxDelImg/img2(10).jpg"
+        },
+        {
+            "src": "DxDelImg/img2(11).jpg"
+        },
+        {
+            "src": "DxDelImg/img2(12).jpg"
+        }, {
+            "src": "DxDelImg/img2(13).jpg"
+        },
+        {
+            "src": "DxDelImg/img2(14).jpg"
+        },
+        {
+            "src": "DxDelImg/img2(1).jpg"
+        }
+    ]
+
+}

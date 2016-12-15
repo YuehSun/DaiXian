@@ -1,0 +1,38 @@
+/*banner*/
+body,html{width: 100%; height: 100%;}
+.banner1{
+	width: 1300px; height: 500px; margin: 0 auto; background: #ff4e54;
+}
+.banner1 img{
+	width: 1300px; height: 500px;
+}
+
+.banner{
+	 width: 100%; height:500px; background: #ff4e54; 
+}
+
+.newshow{
+	width: 100%; height: 234px;
+	background:url(../DxDelImg/newshow.jpg) no-repeat center; 
+	
+}
+
+.main{ width: 100%; min-height: 2000px; background: gainsboro; overflow: hidden; margin: 0 auto;}
+.productshow{  width: 1300px; margin:-50px auto;min-height: 500px;}
+
+/*.productshow:after{content: "."; display: block; clear: both; height: 0; overflow: hidden; visibility: hidden;}*/
+
+.imgs img{ width: 380px; height: 380px; margin: 10px  8px  0 8px;}
+.imgs{ width: 380px; height: 380px;}
+#show li{ float: left; margin-left: 15px; width: 400px; height: 470px; background: white; margin-top: 15px; position: relative;}
+#show2 li{float: left; margin-left: 15px; width: 400px; height: 470px; background: white; margin-top: 15px; position: relative;}
+.titlename{display: block; font-size: 16px; margin: 15px 0 0 13px; width: 290px; overflow: hidden; 
+white-space: nowrap; text-overflow: ellipsis; }
+
+.hd-info{ margin:5px 0 0 10px; color: red; font-size: 14px;} 
+.hd-info span{ font-size: 20px;}
+.imga{position: absolute; right: 0; bottom: 0;}
+
+.moreshow{ width: 100%; height:234px ;background:url(../DxDelImg/moreshow.jpg) no-repeat center; overflow: hidden; }
+
+.mshow{ }

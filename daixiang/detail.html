@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>盖象优品汇_特价_促销_特卖_折扣_抢购 _限时秒杀-盖象商城</title>
+	</head>
+	<link rel="stylesheet" href="samecss.css" />
+	<link rel="stylesheet" href="css/datail.css" />
+	<script type="text/javascript" src="js/jquery-1.11.3.js" ></script>
+	<script type="text/javascript" src="js/jquery.cookie.js" ></script>
+	<script type="text/javascript" src="shoppingcart.js" ></script>
+	
+	
+	
+	<script>	
+	
+	$(function(){
+		$.ajax({
+			type:"get",
+			url:"DxDeImg.json",
+			success:function(req){
+				var html="";
+				var html2="";
+				for (var i=0; i<req.imgs.length;i++) {
+					html+="<li><div class='imgs'><a href='#'><img src="+req.imgs[i].src+"/></a></div><a class='titlename'>"+req.title1[i].title+"</a><div class='hd-info'>RMB<span>12.00</span></div><div class='imga' id="+req.imgs[i].id+"><img src="+req.buyimg[0].src+"/></div></li>"
+					
+				}
+				
+				
+				for (var i=0; i<req.imgs2.length;i++) {
+					html2+="<li><div class='imgs'><a href='#'><img src="+req.imgs2[i].src+"/></a></div><a class='titlename'>"+req.title1[1].title+"</a><div class='hd-info'>RMB<span>12.00</span></div><a class='imga'><img src="+req.buyimg[0].src+"/></a></li>"
+				}
+				$("#show").html(html);
+					$("#show2").html(html2);
+				
+				
+			}
+		});
+		
+		/*购物车*/
+	
+		
+
+
+	  })
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+	
+	<body>
+		   <!--
+        	描述：右边购物车
+        -->
+        
+        <div class="shoppingcart">
+        	<div class="shopping">
+        		<div class="shopping1">
+        		<a> 购物车</a><span id="cookienum">0</span>
+        		</div>
+        	</div>
+        	
+        	<div class="shopmain">
+        		<ul>
+        			
+        			
+        		</ul>
+        		
+        		
+        	</div>
+        	
+        	
+        	
+        </div>
+		
+		<!--
+        	
+        	描述：head
+        -->
+		<div id="head">
+			<div id="head1">
+				
+				<div id="head-left">
+				<a href="#" class="head-home">盖象首页</a>
+				<span>
+					想你了，欢迎来到盖象!
+				</span>
+				<a href="#" class="head-login">请登陆</a>
+				<a href="#" class="head-reg">注册</a>
+				</div>
+				
+				
+				<div class="head-right">
+				     <a class="head-shopp">购物车
+				      <span class="head-shopp-num">0</span>
+				     </a>
+				    
+				
+				  <div id="head-my">
+				  	<a href="#">我的盖象</a>				  	
+				  	  <div id="head-my1" >
+				  	<a href="#">我的订单</a>
+				  	<a href="#">我的钱包</a>
+				  </div>
+				  </div>  
+				  
+				  	  <div id="head-mysc">
+				  	<a href="#">收藏夹</a>				  	
+				  	  <div id="head-mysc1" >
+				  	<a href="#">收藏的商品</a>
+				  	<a href="#">我的的店铺</a>
+				  </div>
+				  </div>
+				  
+				    <div id="head-myzc">
+				  	<a href="#">商家</a>				  	
+				  	  <div id="head-myzc1" >
+				  	<a href="#">商家入驻</a>
+				  	<a href="#">合作加盟</a>
+				  	<a href="#">盖网终端机</a>
+				  </div>
+				  </div>
+				</div>				
+			</div>
+		</div>
+		
+		
+		<!--top-->
+		 <div id="top">
+        	<div id="top-c">
+        	      <div id="top-left">
+        			<a href="#" title="盖象商城">
+        				<img src="img/top_logo.png" />
+        				
+        			</a>
+        			</div>
+        			
+        			
+        			<div id="top-form">
+        				<div id="search" class="search1">
+        					<input id="select" type="text" placeholder="输入关键字进行搜索"/>
+        					<input type="button" id="confirm" value="搜索"  style="color: white; "/>
+        				</div>
+        				
+        					
+        			</div>
+        			
+        			
+
+        	</div>
+        	
+        </div>
+        
+     
+        
+        <!--
+        	描述：main
+        -->
+        
+        <div class="banner">
+        	<div class="banner1">
+        		<img src="DxDelImg/banner.jpg" />
+        		
+        	</div>
+        	
+        </div>
+        
+        <div class="main">
+	        <div class="newshow">
+	
+	        </div>	
+      
+	        <div class="productshow">
+	        		<ul id="show">
+	        			
+	        			
+	        		</ul>
+	        		
+	        	</div>
+	      
+	        		<div class="moreshow">
+	
+	        		
+	        	</div>
+	        
+	        	
+	        	
+	        	<div>
+	        		
+	        	</div>
+	        	<div class="productshow mshow" id="show2">
+	        		
+	        		
+	        	</div>
+		</div>
+		
+		
+		 <!--foot-->
+        
+        <div class="foot">
+        	<div class="foot-m">
+        		<p><span>更多</span>品质齐全</p>
+        		<p><span>更快</span>快速配送</p>
+        		<p><span>更好</span>汇聚品牌</p>
+        		<p><span>更惠</span>天天优惠</p>		
+        		<p class="plast"><span>400-620-6899</span>24小时服务</p>
+        	</div>
+        	
+        	<div class="foot-li">
+        		<div class="lip">
+        			  <p>新手指引</p>
+        	    <p>购物指南</p>
+        	     <p>积分说明</p>
+        	      <p>用户服务</p>
+        	       <p>商城服务</p>    	       		
+        		</div>
+        		
+        		<div class="f-lis">
+        			<ul>
+        				<li><a href="#">商家入驻</a></li>
+        					<li><a href="#">合作加盟</a></li>
+        						<li><a href="#">盖网终端机</a></li>
+        			</ul>
+        			
+        			<ul>
+        				<li><a href="#">购物流程</a></li>
+        					<li><a href="#">查询订单</a></li>
+        						<li><a href="#">付款方式</a></li>
+        			</ul>
+        			
+        			
+        			<ul>
+        				<li><a href="#">商城积分</a></li>
+        					<li><a href="#">如何获取积分</a></li>
+        						<li><a href="#">如何使用积分</a></li>
+        			</ul>
+
+        			<ul>
+        				<li><a href="#">用户注册</a></li>
+        					<li><a href="#">修改密码</a></li>			
+        			</ul>
+        			<ul>
+        				<li><a href="#">广告服务</a></li>		
+        			</ul>
+        		</div>
+        	 <div class="erwei">
+        	 	<img src="img/erwei.png" />
+        	 	<span>关注微信公众号</span>
+        	 </div>
+        	</div>       	
+        </div>
+        
+        <div class="foot2">
+        	<div class="foot2-m">
+        		<ul class="ft2-li">
+        			<li><a href="#">app下载</a></li>
+        			<li><a href="#">关于盖网</a></li>
+        			<li><a href="#">帮助中心</a></li>
+        			<li><a href="#">网站地图</a></li>
+        			<li><a href="#">诚聘英才</a></li>
+        			<li><a href="#">友情链接</a></li>
+        			<li><a href="#">联系客服</a></li>
+        			<li><a href="#">免责声明</a></li>
+        			<li><a href="#">隐私保护</a></li>
+        			<li><a href="#">站长统计</a></li>
+        		</ul>
+        		
+        		<p class="p1">Copyright©g-emall.com    珠海横琴新区盖网通传媒有限公司    增值电信业务经营许可证：粤B2-20140364 粤ICP备14049968号-2 互联网药品信息服务资格证 网络文化经营许可证 穗公网监备案证第44070050010060号</p>
+        		<ul class="f-ul">
+        			<li><a href="#"><img src="img/f-img1.gif"></a></li>
+        			<li><a href="#"><img src="img/f-img2.png"></a></li>
+        			<li><a href="#"><img src="img/f-img3.jpg"></a></li>
+        		</ul>
+        			
+        			
+        			
+        	
+        	</div>
+        	
+        	
+        </div>
+	</body>
+</html>

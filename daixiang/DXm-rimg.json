@@ -1,0 +1,79 @@
+{
+    "imgs": [
+        {
+            "src": "img2/m-r1(1).jpg"
+        },
+        {
+            "src": "img2/m-r1(2).jpg"
+        },
+        {
+            "src": "img2/m-r1(3).jpg"
+        }
+    ],
+    "imgs2": [
+        {
+            "src": "img2/m-r2(1).jpg"
+        },
+        {
+            "src": "img2/m-r2(2).jpg"
+        },
+        {
+            "src": "img2/m-r2(3).jpg"
+        },
+        {
+            "src": "img2/m-r2(4).jpg"
+        },
+        {
+            "src": "img2/m-r2(5).jpg"
+        },
+        {
+            "src": "img2/m-r2(6).jpg"
+        }
+    ], 
+     "imgs2f": [
+     
+    	 {
+            "src": "img2/m-2fim(6).jpg"
+        },
+        {
+            "src": "img2/m-2fim(7).jpg"
+        },
+        {
+            "src": "img2/m-2fim(8).jpg"
+        }
+    	 ,
+        {
+            "src": "img2/m-2fim(1).jpg"
+        },
+        {
+            "src": "img2/m-2fim(2).jpg"
+        },
+        {
+            "src": "img2/m-2fim(3).jpg"
+        },
+        {
+            "src": "img2/m-2fim(4).jpg"
+        },
+        {
+            "src": "img2/m-2fim(5).jpg"
+        }
+    ],
+     "imgs3f": [
+     
+    	 {
+            "src": "img3/m-3fr2(1).jpg"
+        },
+        {
+            "src": "img3/m-3fr2(2).jpg"
+        },
+        {
+            "src": "img3/m-3fr2(3).jpg"
+        }
+    	 ,
+        {
+            "src": "img3/m-3fr2(4).jpg"
+        }
+    ]
+    
+    
+}

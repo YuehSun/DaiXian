@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/style.css" />
+		<script type="text/javascript" src="js/Ajax.js" ></script>
+		<script type="text/javascript" src="js/jquery-1.11.3.js" ></script>
+		<link rel="stylesheet" href="samecss.css" />
+	
+	
+		
+		
+		
+	    <script>
+
+	    	/*导航的json导入*/
+	      onload=function(){	
+	      	var xmlq=getxml();
+	      	xmlq.open("GET","DXShop.json",true);
+	      	xmlq.send();
+	      	
+	      	xmlq.onreadystatechange=function(){
+	      		if(xmlq.readyState==4&&xmlq.status==200){
+	      			var xmlrqtxt=xmlq.responseText;
+	      			var jsontext=JSON.parse(xmlrqtxt);	
+	      			var ul=document.getElementById("nav-ul");
+	      			
+	      			for (var i=0;i<jsontext.product.length;i++) {
+	      				
+	      			var lis=document.createElement("li");
+	      			var as=document.createElement("a");
+	      			as.innerHTML=jsontext.product[i].id;
+	      			as.href="#";
+	      			ul.appendChild(lis);
+	      			lis.appendChild(as);
+
+	      			}
+
+	      			for (var i=0; i<jsontext.srot1.length;i++) {	
+	      			     var dright=document.getElementById("d-right");      			     
+	      			     var a=document.createElement("a");
+	      			     a.innerHTML=jsontext.srot1[i].name+"|";
+	      			      a.href="#";
+	      			     dright.appendChild(a);
+	      			}
+	      			
+	      			for (var i=0; i<jsontext.srot2.length;i++) {	
+	      			     var dright1=document.getElementById("d-right1");      			     
+	      			     var a=document.createElement("a");
+	      			     a.innerHTML=jsontext.srot2[i].name+"|";
+	      			      a.href="#";
+	      			     dright1.appendChild(a);
+	      			}
+	      			
+	      			for (var i=0; i<jsontext.srot3.length;i++) {	
+	      			     var dright2=document.getElementById("d-right2");      			     
+	      			     var a=document.createElement("a");
+	      			     a.innerHTML=jsontext.srot3[i].name+"|";
+	      			      a.href="#";
+	      			     dright2.appendChild(a);
+	      			}
+	      			
+	      			for (var i=0; i<jsontext.srot4.length;i++) {	
+	      			     var dright3=document.getElementById("d-right3");      			     
+	      			     var a=document.createElement("a");
+	      			     a.innerHTML=jsontext.srot4[i].name+"|";
+	      			      a.href="#";
+	      			     dright3.appendChild(a);
+	      			}
+	      			
+	      			for (var i=0; i<jsontext.srot5.length;i++) {	
+	      			     var dright4=document.getElementById("d-right4");      			     
+	      			     var a=document.createElement("a");
+	      			     a.innerHTML=jsontext.srot5[i].name+"|";
+	      			      a.href="#";
+	      			     dright4.appendChild(a);
+	      			}
+	      			
+	      			for (var i=0; i<jsontext.srot6.length;i++) {	
+	      			     var dright5=document.getElementById("d-right5");      			     
+	      			     var a=document.createElement("a");
+	      			     a.innerHTML=jsontext.srot6[i].name+"|";
+	      			     a.href="#";
+	      			     dright5.appendChild(a);
+	      			}
+	      			
+	      			for (var i=0;i<jsontext.head.length;i++) {
+	      				var heads=document.getElementById("d-left"+i)
+	      				
+	      				heads.innerHTML=jsontext.head[i].name;
+	      			}
+
+	      		}
+	      		
+	      	}
+	      	
+	      	//nav-left的划过事件
+	      	
+	     var navul=document.getElementById("nav-ul");
+	     var navleftc=document.getElementById("nav-center")
+	     navul.onmouseover=function(){
+	     	navleftc.style.display="block";
+	     	
+	     	
+	     }
+	     
+	     navleftc.onmouseover=function(){
+	     	navleftc.style.display="block";
+	     	
+	     }
+	       navleftc.onmouseout=function(){
+	     	navleftc.style.display="none";
+	     	
+	     }
+	      navul.onmouseout=function(){
+	     	navleftc.style.display="none";
+	     	
+	     }
+
+	      }
+
+	    </script>
+	<script>
+		$(function(){	
+			var lis=$("#carousel").find("li");
+			var aBtn=$("#carousel-foot").find("li");
+		
+			//记录当前被选中的按钮下标
+			var iNow=0;
+			//定时器
+			var timer=null;
+			//单击事件li
+			aBtn.click(function(){
+				iNow=$(this).index();
+				tab();
+				
+			})
+			//移入时停止
+			
+			$("#nav-carousel").hover(function(){
+				clearInterval(timer);
+			},
+			 function(){
+			 	timer=setInterval(timerInner,2000);
+			 }
+			
+			)
+		
+			
+			timer=setInterval(timerInner,2000);
+			
+			function tab(){
+				aBtn.attr("class","");		
+				
+				aBtn.eq(iNow).attr("class","ca-li");
+				if(iNow==aBtn.length){
+					aBtn.eq(0).attr("class", "ca-li");
+
+				}
+				
+				
+				$("#carousel").animate({top:-450*iNow})
+				if(iNow==lis.length-1){
+					iNow=0;
+					$("#carousel").css("top",0)
+				
+					
+				}
+				
+				
+				
+				
+			}
+			
+			
+			function timerInner(){
+				iNow++;
+				tab();
+				
+			}
+			
+			
+		})
+		
+	</script>
+	
+	<script>
+	      $.ajax({
+	      	type:"get",
+	      	url:"DXimg.json",
+	      	
+	       success:function(req){
+	       	var html="";
+	       	for (var i=0; i<req.imgs.length;i++) {
+	       		  html+="<li><a href='detail.html'><img src="+req.imgs[i].img +"/></a></li>"
+	       		 
+	       		
+	       	}
+	       $("#m-imgs1 ul").html(html);
+	     
+	       	 
+	       	
+	       	
+	       }
+	       
+	      });	
+		
+	</script>
+	
+	<script>
+		 $(function(){
+		 	
+		 	$.ajax({
+		 		type:"get",
+		 		url:"DXimgc.json",
+		 		success:function(req){
+		 			var html="";
+					for (var i=0; i<req.imgc.length;i++) {
+		 				html+="<li><a href='#'><img src="+req.imgc[i].src+"/></a></li>"
+
+		 			}
+					$("#m-choose ul").html(html);
+
+		 		}
+		 	});
+		 })
+		 
+		
+	</script>
+	
+	<script>
+		$(function(){
+			var isNow=0;
+			var timer=null;
+			var timer2=null;
+		$("#m-lis").hover(function(){
+			clearInterval(timer)
+		},function(){
+			timer=setInterval(tab,2000)
+		}
+		)
+	
+	
+			timer=setInterval(tab,2000)
+			function tab(){
+				
+			 $("#m-lis").animate({top:-200*isNow})
+			 
+			 isNow++;
+			 if(isNow==2){
+			 	isNow=0
+			 }
+			
+			}
+
+		})
+	</script>
+     
+     <script>
+     	$(function(){
+     		$.ajax({
+     			type:"get",
+     			url:"DXmain.json",
+     			success:function(req){
+     				var html="";
+     				var html1="";
+     				var html2="";
+     				for (var i=0;i<req.names.length;i++) {
+     					html+="<a href='#'>"+req.names[i].name +"</a>"
+     					html1+="<a href='#'>"+req.names[i].name1 +"</a>"
+     					html2+="<a href='#'>"+req.names[i].name2 +"</a>"
+     					
+     				}
+     				$("#m-left-foot").html(html);
+     				$("#m-left-foot1").html(html1);
+     				$("#m-left-foot2").html(html2);
+     				
+     			}
+     			
+     		});
+     		
+     		
+     	})
+     	
+     </script>
+
+   <script>
+   
+   $(function(){
+   	
+   	$.ajax({
+   		type:"get",
+   		url:"DXm-rimg.json",
+   		success:function(req){
+   			var html="";
+   			var html1="";
+   			var html2="";
+   			var html3="";
+   			var html4="";
+   			for (var i=0; i<req.imgs.length;i++) {
+   				html+="<li ><a hrrf='#'> <img src="+req.imgs[i].src+"/></a></li>"
+   			}
+   			
+   			for (var i=0; i<req.imgs2.length;i++) {
+   				html1+="<li ><a href='#'> <img src="+req.imgs2[i].src+"/></a></li>"
+   			}
+   			
+   			for (var i=0;i<3;i++) {
+   				
+   				html2+="<li ><a href='#'> <img src="+req.imgs2f[i].src+"/></a></li>"
+   			}
+   			for (var i=3;i<req.imgs2f.length;i++) {
+   				html3+="<li ><a href='#'> <img src="+req.imgs2f[i].src+"/></a></li>"
+   			}
+   			for (var i=0;i<req.imgs3f.length;i++) {
+   				html4+="<li ><a href='#'> <img src="+req.imgs3f[i].src+"/></a></li>"
+   			}
+   			$("#m-2f-div3").html(html3)
+   			$("#m-2f-div1").html(html2)
+   			$("#m-1fright1").html(html);
+   			$("#m-r-r1").html(html1);
+   			$("#m-3f-ul").html(html4)
+   		}
+   	});
+   	var isnow=0;
+
+     $("#m-1fr").hover(function(){
+     	clearInterval(timer)
+     },
+     function(){
+     	 	timer=setInterval(tab,2000)
+     }
+    );
+    
+       var flis= $("#m-r-foot").find("li");
+       
+     flis.click(function(){
+     	isnow=$(this).index();
+     	tab();
+     	
+     })
+     
+     
+     
+   	timer=setInterval(tab,2000)
+   	
+   	
+   	function tab(){
+   	     
+   	     flis.attr("class","");
+   	     
+   	     flis.eq(isnow).attr("class","active");
+   	       
+   		$("#m-1fright1").animate({ top:-390*isnow,opacity:0})
+   		$("#m-1fright1").animate({ opacity:1})
+   		isnow++;
+   		if(isnow==3){
+   		
+   			isnow=0;
+   		}
+   		
+   	}
+   	
+   	
+   	
+   })
+
+   </script>
+
+   <script>
+   	$(function(){
+   		var isnow=0;
+   		var timer=null;
+   		timer=setInterval(tab,2000);
+   		$("#m-2flis").hover(function(){
+   			clearInterval(timer);
+   		},
+   		   function(){
+   		   		timer=setInterval(tab,2000);
+   		   }
+   		)
+   		
+   		function tab(){
+   			isnow++;
+   			if(isnow==2){
+   				isnow=0;
+   			}
+   			$("#m-2flis").animate({top:-220*isnow, opacity:0})
+   			$("#m-2flis").animate({opacity:1})
+   		}
+   		
+   		
+   	})
+   	
+   	
+   </script>
+   
+   <script>
+       $(function(){
+       	var isnow=0;
+       	var timer=null;
+       	$("#m-2f-rimg").hover(function(){
+       		clearInterval(timer)
+       	},
+       	function(){
+       			timer=setInterval(tab,1000);
+       	}
+       );
+       	
+       	var lis=$("#m-2f-rli").find("li");
+       	lis.click(function(){
+       		isnow=$(this).index();
+       		
+       		tab();
+       	})
+       	
+       	
+       	
+       	
+       	timer=setInterval(tab,2000);
+       	
+       	function tab(){
+       	   lis.attr("class","");
+       	lis.eq(isnow).attr("class","active")
+       	
+       	isnow++;
+       	if(isnow==3){
+       		isnow=0;
+       	}
+       	
+         $("#m-2f-ruls").animate({left:-400*isnow,opacity:0})
+           $("#m-2f-ruls").animate({opacity:1})
+       	}
+
+      })
+   </script>
+
+  <script>
+		  $(function(){
+		         var i=-1;
+		          var timer=null;
+		          
+		    	 timer = setInterval(tab,2000);
+		     
+		         $(".m-2ful").hover(function(){
+		         	clearInterval(timer);
+		         	$(".m-3fuimg").eq(i-1).css("display","block");
+		         },function(){
+		         	timer=setInterval(tab,2000);
+		         })
+		         
+		         
+		         function tab(){
+		         	i++;
+		         	$(".m-3fuimg").eq(i-1).css("display","none");
+		         	$(".m-3fuimg").eq(i).fadeIn(2000);
+		         	$(".m-3fuimg").eq(i).fadeOut(2000);
+		         	if(i==1){
+		         		i=-1;
+		         	}
+		         };
+		         
+		         //ulimgs
+		         var time2=null;
+		        $("#m-3ful").hover(function(){
+		        	clearInterval(time2);
+		        	 $("#m-3ful").find("li").eq(isnow-1).css("display","block");
+		        },
+		        function(){
+		        	 time2= setInterval(fade,2000);
+		        }
+		        )
+		        
+		        time2= setInterval(fade,2000);
+		        
+		         var isnow=0;
+		         
+		         function fade(){
+		         	isnow++;
+		         	  $("#m-3ful").find("li").css("display","none");
+		         $("#m-3ful").find("li").eq(isnow).fadeIn(2000);
+		           $("#m-3ful").find("li").eq(isnow).fadeOut(2000);
+		           
+		        	 if(isnow==2){
+		         		isnow=-1;
+		         	}
+
+		         }
+		         
+		         
+		  	
+		  	
+		  })
+		  
+  </script>
+	
+	
+	
+	</head>
+	
+	
+	
+	<body>
+		<!--
+                 顶部
+        -->
+		<div id="head">
+			<div id="head1">
+				
+				<div id="head-left">
+				<a href="#" class="head-home">盖象首页</a>
+				<span>
+					想你了，欢迎来到盖象!
+				</span>
+				<a href="#" class="head-login">请登陆</a>
+				<a href="#" class="head-reg">注册</a>
+				</div>
+				
+				
+				<div class="head-right">
+				     <a class="head-shopp">购物车
+				      <span class="head-shopp-num">0</span>
+				     </a>
+				    
+				
+				  <div id="head-my">
+				  	<a href="#">我的盖象</a>				  	
+				  	  <div id="head-my1" >
+				  	<a href="#">我的订单</a>
+				  	<a href="#">我的钱包</a>
+				  </div>
+				  </div>  
+				  
+				  	  <div id="head-mysc">
+				  	<a href="#">收藏夹</a>				  	
+				  	  <div id="head-mysc1" >
+				  	<a href="#">收藏的商品</a>
+				  	<a href="#">我的的店铺</a>
+				  </div>
+				  </div>
+				  
+				    <div id="head-myzc">
+				  	<a href="#">商家</a>				  	
+				  	  <div id="head-myzc1" >
+				  	<a href="#">商家入驻</a>
+				  	<a href="#">合作加盟</a>
+				  	<a href="#">盖网终端机</a>
+				  </div>
+				  </div>
+				</div>				
+			</div>
+		</div>
+		
+		<!--
+              头部
+        -->
+        
+        <div id="top">
+        	<div id="top-c">
+        	      <div id="top-left">
+        			<a href="#" title="盖象商城">
+        				<img src="img/top_logo.png" />
+        				
+        			</a>
+        			</div>
+        			<div id="top-leftimg">
+        				<p>盖网定制</p>
+        				<p>商务首选</p> 				
+        				
+        				<img src="img/img1.jpg" style="width:46px; height:70px ; position: absolute; right:0px;"/>
+
+        			</div>
+        			
+        			<div id="top-form">
+        				<div id="search">
+        					<input id="select" type="text" placeholder="输入关键字进行搜索"/>
+        					<input type="button" id="confirm" value="搜索"  style="color: white;"/>
+        				</div>
+        				<div id="search-foot">
+        					<ul>
+        						<li><a href="#">手机</a></li>
+        						<li><a href="#">服饰</a></li>
+        						<li><a href="#">电脑</a></li>
+        						<li><a href="#">台式机</a></li>
+        						<li><a href="#">iphone</a></li>
+        						
+        					</ul>
+        					
+        				</div>
+        					
+        			</div>
+        			
+        			<div id="qrcode">
+        				<a href="#"><img src="img/qr1.png"/></a>
+        				<a href="#"><img src="img/qr2.png"/></a>
+        				
+        			</div>
+
+        	</div>
+        	
+        </div>
+        
+        <!--
+        	导航头部
+        -->
+        <div id="nav-sort">
+        	<div id="nav-head">
+        		<div id="shopsort">
+        			<p>全部商品分类</p>
+        	     </div>      	
+	        	<div id="nav-head-li">
+	        		<ul>
+	        			<li><a href="#" id="li-first">优品汇</a></li>
+	        			<li><a href="#">五维自营</a></li>
+	        			<li><a href="#">盖象超市</a></li>
+	        			<li><a href="#">电器城</a></li>
+	        			<li><a href="#">至优旅游</a></li>
+	        			<li><a href="#">线下服务</a></li>
+	        		</ul>	
+	        	</div>
+        	</div>
+        </div>
+        <!--
+        	导航加轮播
+        -->
+        
+        <div id="nav">
+        	
+       <div id="nav-m">
+       	<!--左边的导航-->
+       	<div id="nav-left">
+          <ul id="nav-ul">
+  
+          </ul>		
+          
+           <!--
+             移动显示的
+        -->
+        <div id="nav-center">
+        <div id="nav-right">
+             <div id="d-left0">
+             </div>
+             <div id="d-right">
+             	
+             </div>
+        	
+        </div>
+        
+         <div id="nav-right">
+             <div id="d-left1">
+             </div>
+             <div id="d-right1">
+             	
+             </div>
+        	
+        </div>
+        
+         <div id="nav-right">
+             <div id="d-left2">
+             </div>
+             <div id="d-right2">	
+             </div>
+        </div>
+        
+         <div id="nav-right">
+             <div id="d-left3">
+             </div>
+             <div id="d-right3">	
+             </div>
+        </div>
+        
+        <div id="nav-right">
+             <div id="d-left4">
+             </div>
+             <div id="d-right4">	
+             </div>
+        </div>
+        
+        <div id="nav-right">
+             <div id="d-left5">
+             </div>
+             <div id="d-right5">	
+             </div>
+        </div>
+
+        </div>
+
+        </div>
+        <!--
+       	轮播图
+       -->
+        <div id="nav-carousel">
+        	<ul id="carousel">
+        		<li><img src="img/nav-img1.jpg"</li>
+        		<li><img src="img/nav-img2.jpg"</li>
+        		<li><img src="img/nav-img3.jpg"</li>
+        		<li><img src="img/nav-img4.jpg"</li>
+        		<li><img src="img/nav-img5.jpg"</li>
+        		<li><img src="img/nav-img1.jpg"</li>
+        
+        	</ul>
+        	
+        	<div id="carousel-foot">
+        		<ul>
+        			<li class="ca-li">1</li>
+        			<li>2</li>
+        			<li>3</li>
+        			<li>4</li>
+        			<li>5</li>
+        		</ul>
+        		
+        	</div>    	
+        </div>
+       </div>
+        </div>
+        
+       <!--main-->
+        <div id="main">
+        	
+      <!--中间的五个图片-->
+        <div id="m-img1">
+        	<div id="m-imgs1">
+        		<ul >
+        			
+        		</ul>
+        	</div>
+        </div>
+        
+       <!--盖推荐-->
+        <div id="m-choose">
+        	<p><img src="img/choose-head.png" /></p>
+        	<ul>
+        		
+        	</ul>
+        	
+        </div>
+        
+       <!--1f
+        	--> 
+        
+        <div id="m-1f">
+        	<div class="m-1fhead">
+        		<img src="img/1f.jpg" />
+        		<span>家用电器</span>
+        		<ul>
+        			<li>热门</li>
+        			<li>大家电</li>
+        			<li>日用小家电</li>
+        			<li>厨房电器</li>        			
+        		</ul>
+        	</div>
+        	
+        	
+        	 <div id="m-1fleft">
+        	 	<div id="m-ul">
+        	 		<ul id="m-lis">
+        	 		<li><a href="#"><img src="img1/1flef(1).jpg"/></a></li>
+        	 		<li><a   href="#"><img src="img1/1flef(4).jpg"/></a></li>
+        	 		<li><a  href="#"><img src="img1/1flef(3).jpg"/></a></li>
+        	 		<li><a  href="#"><img src="img1/1flef(2).jpg"/></a></li>
+        	 		<li><a  href="#"><img src="img1/1flef(5).jpg"/></a></li>
+        	 		<li><a  href="#"><img src="img1/1flef(6).jpg"/></a></li>
+        	 		<li><a  href="#"><img src="img1/1flef(8).jpg"/></a></li>
+        	 	</ul>
+        	 	</div>
+        	 	
+        	 	<div id="m-left-foot">
+        	 	</div>
+              </div>
+              
+              <div class="m-1fright" id="m-1fr" >
+              	<ul id="m-1fright1">   		
+              	</ul>
+              		<ul id="m-r-foot">
+              			<li class="active"></li>
+              			<li></li>
+              			<li></li>
+              		</ul>
+              	
+              	
+              </div>
+              
+              
+              <div class="m-r-r" id="m-r-r1">
+              	
+              	
+              </div>
+              
+              
+        </div>
+        
+        <!--2f-->
+           <div id="m-1f">
+        	<div class="m-1fhead m-2fhead">
+        		<img src="img/2f.png" />
+        		<span>手机数码</span>
+        		<ul>
+        			<li>热门</li>
+        			<li>手机通讯</li>
+        			<li>手机配件</li>
+        			<li>摄影摄像</li>        			
+        		</ul>
+        	</div>
+        	
+        	 <div id="m-1fleft">
+        	 	<div class="m-2ful">
+        	 		<ul class="m-2fli" id="m-2flis">
+        	 		<li><a href="#"><img src="img1/2flef(1).jpg"/></a></li>
+        	 		<li><a   href="#"><img src="img1/2flef(4).jpg"/></a></li>
+        	 		<li><a  href="#"><img src="img1/2flef(3).jpg"/></a></li>
+        	 		<li><a  href="#"><img src="img1/2flef(2).jpg"/></a></li>
+        	 		<li><a  href="#"><img src="img1/2flef(5).jpg"/></a></li>
+        	 		<li><a  href="#"><img src="img1/2flef(6).jpg"/></a></li>
+        	 		<li><a  href="#"><img src="img1/2flef(7).jpg"/></a></li>
+        	 	</ul>
+        	 	</div>
+        	 	
+        	 	<div id="m-left-foot1">
+        	 	</div>
+             </div>
+             
+             <div class="m-2fright" id="m-2fright2">
+             	<div class="m-2f-r" id="m-2f-rimg">
+             		<ul class="m-2f-rul" id="m-2f-ruls">
+             			<li><a href="#"><img src="img1/m-2fr(1).jpg"/></a></li>
+             			<li><a href="#"><img src="img1/m-2fr(2).jpg"/></a></li>
+             			<li><a href="#"><img src="img1/m-2fr(3).jpg"/></a></li>	
+             		</ul>
+             		<ul class="m-f-rli" id="m-2f-rli">
+              			<li class="active"></li>
+              			<li></li>
+              			<li></li>
+              		</ul>
+             	</div>
+             	
+             	<div class="m-2f-div" id="m-2f-div1">
+		
+             	</div>
+             	
+             	<div class="m-2f-div2" id="m-2f-div3">
+		
+             	</div>
+              
+             </div>
+
+        </div>
+
+          <!--3f-->
+           <div id="m-1f">
+        	<div class="m-1fhead m-3fhead">
+        		<img src="img/3f.png" />
+        		<span>家用电器</span>
+        		<ul>
+        			<li>热门</li>
+        			<li>大家电</li>
+        			<li>日用小家电</li>
+        			<li>厨房电器</li>        			
+        		</ul>
+        	</div>
+        	
+        	 <div id="m-1fleft">
+        	 	<div class="m-2ful">
+        	 		<div class="m-3fuimg">
+                       <a href="#"><img src="img3/m-3f(1).jpg"/></a>
+                       <a href="#"><img src="img3/m-3f(2).jpg"/></a>
+                       <a href="#"><img src="img3/m-3f(3).jpg"/></a>
+                        <a href="#"><img src="img3/m-3f(4).jpg"/></a>
+                      
+        	 		</div>
+        	 		
+        	 		<div class="m-3fuimg">
+        	 			 <a href="#"><img src="img3/m-3f(5).jpg"/></a>
+                       <a href="#"><img src="img3/m-3f(6).jpg"/></a>
+                       <a href="#"><img src="img3/m-3f(7).jpg"/></a>
+                        <a href="#"><img src="img3/m-3f(8).jpg"/></a>
+
+        	 		</div>
+        	 	</div>
+        	 	
+        	 	<div id="m-left-foot2">
+        	 	</div>
+             </div>
+             
+             <div class="m-3fr1">
+             	<ul id="m-3ful">
+             	<li><img src="img3/m-3fr(1).jpg"/></li>
+             		<li><img src="img3/m-3fr(2).jpg"/></li>
+             		<li><img src="img3/m-3fr(3).jpg"/></li>
+             	</ul>
+             </div>
+             
+             <div class="m-3f-r" >
+             	<ul id="m-3f-ul">
+             	</ul>
+             </div>
+             
+             <div class="m-3f-r1">
+             	<img src="img3/m-3f-r2.jpg"/>
+             	
+             </div>
+             
+             
+        </div>   
+        
+        <!--main的结束-->
+        </div>
+        
+        
+        <!--foot-->
+        
+        <div class="foot">
+        	<div class="foot-m">
+        		<p><span>更多</span>品质齐全</p>
+        		<p><span>更快</span>快速配送</p>
+        		<p><span>更好</span>汇聚品牌</p>
+        		<p><span>更惠</span>天天优惠</p>		
+        		<p class="plast"><span>400-620-6899</span>24小时服务</p>
+        	</div>
+        	
+        	<div class="foot-li">
+        		<div class="lip">
+        			  <p>新手指引</p>
+        	    <p>购物指南</p>
+        	     <p>积分说明</p>
+        	      <p>用户服务</p>
+        	       <p>商城服务</p>    	       		
+        		</div>
+        		
+        		<div class="f-lis">
+        			<ul>
+        				<li><a href="#">商家入驻</a></li>
+        					<li><a href="#">合作加盟</a></li>
+        						<li><a href="#">盖网终端机</a></li>
+        			</ul>
+        			
+        			<ul>
+        				<li><a href="#">购物流程</a></li>
+        					<li><a href="#">查询订单</a></li>
+        						<li><a href="#">付款方式</a></li>
+        			</ul>
+        			
+        			
+        			<ul>
+        				<li><a href="#">商城积分</a></li>
+        					<li><a href="#">如何获取积分</a></li>
+        						<li><a href="#">如何使用积分</a></li>
+        			</ul>
+
+        			<ul>
+        				<li><a href="#">用户注册</a></li>
+        					<li><a href="#">修改密码</a></li>			
+        			</ul>
+        			<ul>
+        				<li><a href="#">广告服务</a></li>		
+        			</ul>
+        		</div>
+        	 <div class="erwei">
+        	 	<img src="img/erwei.png" />
+        	 	<span>关注微信公众号</span>
+        	 </div>
+        	</div>       	
+        </div>
+        
+        <div class="foot2">
+        	<div class="foot2-m">
+        		<ul class="ft2-li">
+        			<li><a href="#">app下载</a></li>
+        			<li><a href="#">关于盖网</a></li>
+        			<li><a href="#">帮助中心</a></li>
+        			<li><a href="#">网站地图</a></li>
+        			<li><a href="#">诚聘英才</a></li>
+        			<li><a href="#">友情链接</a></li>
+        			<li><a href="#">联系客服</a></li>
+        			<li><a href="#">免责声明</a></li>
+        			<li><a href="#">隐私保护</a></li>
+        			<li><a href="#">站长统计</a></li>
+        		</ul>
+        		
+        		<p class="p1">Copyright©g-emall.com    珠海横琴新区盖网通传媒有限公司    增值电信业务经营许可证：粤B2-20140364 粤ICP备14049968号-2 互联网药品信息服务资格证 网络文化经营许可证 穗公网监备案证第44070050010060号</p>
+        		<ul class="f-ul">
+        			<li><a href="#"><img src="img/f-img1.gif"></a></li>
+        			<li><a href="#"><img src="img/f-img2.png"></a></li>
+        			<li><a href="#"><img src="img/f-img3.jpg"></a></li>
+        		</ul>
+        			
+        			
+        			
+        	
+        	</div>
+        	
+        	
+        </div>
+        
+        
+		
+	</body>
+</html>

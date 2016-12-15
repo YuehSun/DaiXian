@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="samecss.css" />
+		<link rel="stylesheet" href="css/show1.css" />
+		<script type="text/javascript" src="js/jquery-1.11.3.js" ></script>
+		<script>
+		$(function(){
+			var index=1;
+		for (var i=1; i<=5;i++) {
+			var lis=document.createElement("li");
+			
+			var imgs=document.createElement("img");
+			imgs.src="ShowImg/show1("+i+").jpg";
+			
+			lis.appendChild(imgs)
+			
+			$(".pul").append(lis);
+			
+		}
+		
+		   $(".pul").find("li").hover(function(){
+		      index=$(this).index()+1;
+		         var img=document.getElementById("show1");
+		          var img2=document.getElementById("show2")
+		       
+		  img.src="ShowImg/show1("+index+").jpg";
+		img2.src="ShowImg/show1("+index+").jpg";
+			
+			
+		      
+		   });
+		   
+		   
+		   /*缩放图*/
+		   
+		   $(".photo1").hover(function(){
+		        $(".smalldiv").css("display","block")
+		        $(".bigphoto").css("display","block");
+		     
+		    
+		   },function(){
+		   		 $(".smalldiv").css("display","none")
+		   		  $(".bigphoto").css("display","none");
+		   })  
+		    
+		     
+		    
+		    var photo=document.getElementsByClassName("photo")[0].children[0];
+		  
+		     var samlldiv=document.getElementsByClassName("smalldiv")[0];
+		    
+		     photo.onmousemove=function(eve){
+		     	
+		     	var evt=eve||window.event;
+		     	//小div移动
+		     	var left=evt.offsetX-samlldiv.offsetWidth/2;
+		     	var top=evt.offsetY-samlldiv.offsetHeight/2;
+		     	if(left<0){
+				left=0;
+				}else if(left>photo.offsetWidth-samlldiv.offsetWidth){
+						left=photo.offsetWidth-samlldiv.offsetWidth;
+					}
+				
+				if(top<0){
+				top=0;
+				}else if(top>photo.offsetHeight-samlldiv.offsetHeight){
+						top=photo.offsetHeight-samlldiv.offsetHeight;
+					}
+
+		     	
+		     	
+		     	samlldiv.style.left=left+"px";
+		     	samlldiv.style.top=top+"px";
+		     	
+		     	//大div的显示
+		     	
+		     	var big=document.getElementsByClassName("bigphoto")[0];
+		     	var photo2=big.children[0];
+		     	//移动的比例  把X值和Y值换算成比例;
+		     	
+		     	var positonx=left/(photo.offsetWidth-samlldiv.offsetWidth);
+		     	var positony=top/(photo.offsetHeight-samlldiv.offsetHeight);
+		     	
+		     	////利用比例去算出大小不同的元素的偏移距离；
+		     	
+		     	photo2.style.left=-positonx*(photo2.offsetWidth-big.offsetWidth)+"px";
+		     	 	photo2.style.top=-positony*(photo2.offsetHeight-big.offsetHeight)+"px";
+		     	
+		     	
+		     }
+		     
+		    
+		  
+		
+		  
+		   
+		    
+		  
+			
+		})
+			
+			
+		</script>
+	</head>
+	<body>
+		
+			<!--
+        	
+        	描述：head
+        -->
+		<div id="head">
+			<div id="head1">
+				
+				<div id="head-left">
+				<a href="#" class="head-home">盖象首页</a>
+				<span>
+					想你了，欢迎来到盖象!
+				</span>
+				<a href="#" class="head-login">请登陆</a>
+				<a href="#" class="head-reg">注册</a>
+				</div>
+				
+				
+				<div class="head-right">
+				     <a class="head-shopp">购物车
+				      <span class="head-shopp-num">0</span>
+				     </a>
+				    
+				
+				  <div id="head-my">
+				  	<a href="#">我的盖象</a>				  	
+				  	  <div id="head-my1" >
+				  	<a href="#">我的订单</a>
+				  	<a href="#">我的钱包</a>
+				  </div>
+				  </div>  
+				  
+				  	  <div id="head-mysc">
+				  	<a href="#">收藏夹</a>				  	
+				  	  <div id="head-mysc1" >
+				  	<a href="#">收藏的商品</a>
+				  	<a href="#">我的的店铺</a>
+				  </div>
+				  </div>
+				  
+				    <div id="head-myzc">
+				  	<a href="#">商家</a>				  	
+				  	  <div id="head-myzc1" >
+				  	<a href="#">商家入驻</a>
+				  	<a href="#">合作加盟</a>
+				  	<a href="#">盖网终端机</a>
+				  </div>
+				  </div>
+				</div>				
+			</div>
+		</div>
+		
+		
+		<!--top-->
+		 <div id="top">
+        	<div id="top-c">
+        	      <div id="top-left">
+        			<a href="#" title="盖象商城">
+        				<img src="img/top_logo.png" />
+        				
+        			</a>
+        			</div>
+        			
+        			
+        			<div id="top-form">
+        				<div id="search" class="search1">
+        					<input id="select" type="text" placeholder="输入关键字进行搜索"/>
+        					<input type="button" id="confirm" value="搜索"  style="color: white;"/>
+        				</div>
+        				
+        					
+        			</div>
+        			
+        			
+
+        	</div>
+        	
+        </div>
+        
+        
+        <div class="collection">
+        	<div class="clm">
+        		<div class="cl"><span>收藏本店</span></div>
+        	</div>
+        </div>
+        
+        <div class="main">
+        	
+        	<div class="mainc">
+        		<div class="photo">
+        			
+        			<div class="photo1"></div>      				
+        				<img src="ShowImg/show1(1).jpg" id="show1"/>      				
+        				<div class="smalldiv" >
+        				</div>
+        			<ul class="pul">
+        			</ul>
+        		</div>        		
+        		<div  class="bigphoto">
+        			<div class="photo2">
+        			<img  src="ShowImg/show1(1).jpg" id="show2"/>
+	
+        		</div>
+        		</div>
+        		
+        		<div class="mainc-r">
+        			<div class="proct">
+        			<span class="head-span">印度进口辣木籽 特级辣木子天然精选辣木种子保健食品休闲零食</span>
+        			<p> <span>零售</span><span class="moeny">￥12.00</span></p>
+        		<p> <span>换购积分</span><span >26.66 积分</span></p>
+        			<p> <span>优惠</span><span> 支持12.00元限时购</span></p>
+        			<p> <span>运费</span><span> 包邮</span></p>
+        			
+        			<p> <span>规格</span><span><a class="size">进口天然辣木籽20g </a> </span></p>
+        			
+        			<p> <span>数量</span><span><input type="text" class="txt"  value="1"/> </span><span>库存100034件</span></p>
+        			</div>
+        			
+        			<div class="buttn">
+        				
+        				<button class="shop">立即购买</button>
+        				<button class="shop2">加入购物车</button>
+        				
+        			</div>
+        			
+        		</div>
+        		
+        		
+        	</div>
+        	
+        	
+        </div>
+	</body>
+</html>

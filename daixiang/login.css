@@ -1,0 +1,111 @@
+/*head*/
+.top1,.main1,.foot2-m{ width: 1300px; margin: 0 auto;  overflow: hidden; }
+
+
+.top{
+	width: 100%;height:115px ;
+	
+}
+
+.top1 h1{
+	float: left; margin: 20px; 
+}
+.top1 p{
+	float: left; margin-top: 50px;  font-size: 22px;
+}
+.top1{
+	 height: 115px;
+}
+/*main*/
+
+.main{
+	width: 100%;height:650px ;background:#ff3042;
+}
+.main1{
+	height: 650px;
+	
+}
+
+#logimg{
+	margin-top: 70px;
+	margin-left: 50px;float: left;
+}
+
+.form1{
+	width: 440px; height: 550px; background: white; float: left; margin-top:36px; margin-left: 200px; overflow: hidden;
+
+}
+.form-head{
+	margin-top: 20px; margin-left: 23px;  width: 390px; height: 27px;
+	
+}
+
+.form1 .p1{
+	font-size: 16px; height: 18px; width:120px ;float: left;
+}
+.form1 .a1{ float: left;margin-top: 5px;
+	margin-left: 150px;  text-decoration: underline;}
+.form-m{ width: 400px; height: 270px;  margin-left: 15px; margin-top: 10px; }
+#admin { width: 400px; height: 40px; font-size: 15px;  text-indent: 55px; border: 0;border:1px solid gainsboro}
+#pass { width: 400px; height: 40px; font-size: 15px;text-indent: 55px; border: 0;border:1px solid gainsboro}
+#admintxt{width: 400px; height: 20px; color: red;}
+#passtxt{width: 400px; height: 20px; color: red;}
+
+
+.p2{width: 400px; height: 37px;  }
+#chk{ width: 50px; height: 20px; line-height: 20px; float: left;}
+#check{ float: left;}
+.p2 a{ float: right; margin-top: 5px;}
+
+.form-f{ width: 400px; height:67px; margin-left: 20px; color: darkgray; font-size: 15px;}
+
+.form-f img{ width:130px; height: 44px; margin-top: 40px;}
+
+.foot2{
+	width: 100%;
+	height: 210px;
+	background: #333333;
+	overflow: hidden;
+	color: white;
+}
+
+.foot2-m{
+	height:133px ;
+	
+	overflow: hidden;
+	margin-top: 30px;
+}
+
+.foot2-m .ft2-li li{
+	
+	float: left;
+	width: 89px;
+	height: 17px;
+	border-right: 1px solid black;
+	text-align: center
+}
+
+.foot2-m .ft2-li a{
+	color: white;
+}
+.foot2-m .ft2-li{
+	
+	width: 1100px;
+	float: left;
+	
+}
+
+.foot2-m .ft2-li{
+	margin-left: 134px;
+}
+.foot2-m .ft2-li a:hover{
+	text-decoration: underline;
+}
+.foot2-m .p1{
+	
+	width: 1200px;
+	height:18px ;
+	float: left;
+	margin-top: 10px;
+	text-align: center;}
+	

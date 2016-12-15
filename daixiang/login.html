@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="samecss.css" />
+		<link rel="stylesheet" href="login.css" />
+		<script type="text/javascript" src="js/LoginJs.js" ></script>
+		<script type="text/javascript" src="js/jquery-1.11.3.js" ></script>
+		
+		<script>
+			$.cookie("")
+			
+		</script>
+	</head>
+	<body>
+		<div class="top">
+			<div class="top1">
+				<h1><a href="#"><img src="img/top_logo.png"/></a></h1>
+				<p>欢迎登陆</p>
+				
+			</div>
+
+		</div>
+		
+		<div class="main">
+			<div class="main1">
+				<img src="img/logimg.jpg"  id="logimg"/>
+				
+				<div class="form1">
+					<div class="form-head">
+						<p class="p1">登录盖象商城</p>
+						<a class="a1">立即登陆</a>
+					</div>
+					
+					<div class="form-m">
+						<input type="text" placeholder="会员编号 / 用户名 /公司名称 /手机号" style="background: url(img/inpimg1.jpg) no-repeat; " id="admin"; onblur="valiuser()"/>
+						<div id="admintxt">
+							
+						</div>
+						<input type="password" style="background: url(img/inimg2.jpg) no-repeat;" id="pass" onblur="valipass()"/>
+						<div id="passtxt">
+							
+						</div>
+						<div class="p2">
+							<p>
+								<input type="checkbox"  style="width:15; height: 15px;" id="check"/>
+								<span id="chk">自动登陆</span>
+								<a href="#">忘记密码</a>
+							</p>
+							<span>
+								
+							</span>
+						
+						</p>
+					</div>
+					<button style=" width:390px; height: 50px; margin: 10px; background: #ff3042; border: 0; color:white; font-size: 18px;"  onclick="show()">登录</button>			
+				</div>
+				
+				<div class="form-f"> 
+				     使用合作网站账号登录盖象：
+				     <img src="img/fromf.jpg" />
+				</div>
+			</div>
+			
+			
+			<!--
+            	
+            	描述：foot
+            -->
+		</div>
+		
+		<div class="foot2">
+        	<div class="foot2-m">
+        		<ul class="ft2-li">
+        			
+        			<li><a href="#">关于盖网</a></li>
+        			<li><a href="#">帮助中心</a></li>
+        			<li><a href="#">网站地图</a></li>
+        			<li><a href="#">诚聘英才</a></li>
+        			<li><a href="#">友情链接</a></li>
+        			<li><a href="#">联系客服</a></li>
+        			<li><a href="#">免责声明</a></li>
+        			<li><a href="#">隐私保护</a></li>
+        			<li><a href="#">站长统计</a></li>
+        		</ul>
+        		
+        		<p class="p1">Copyright©g-emall.com    珠海横琴新区盖网通传媒有限公司    增值电信业务经营许可证：粤B2-20140364 粤ICP备14049968号-2 互联网药品信息服务资格证 网络文化经营许可证 穗公网监备案证第44070050010060号</p>
+
+        	
+        	</div>
+        	
+        	
+        </div>
+	</body>
+</html>
